@@ -1,0 +1,15 @@
+.buttonModalContainer {
+  margin-top: 30px;
+  border: 2px solid black;
+  width: 400px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}

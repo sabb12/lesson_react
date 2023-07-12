@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Button from "@/app/components/Button/Button";
+import ButtonModal from "@/app/components/Button/ButtonModal";
 
 export default function Home() {
   return (
@@ -17,13 +18,16 @@ export default function Home() {
         <Button
           buttonStyle="secondary"
           text={"Secondary Button"}
-          onClick={() => alert("primary button clicked!!")}
+          onClick={() => alert("secondary button clicked!!")}
         />
         <Button
           buttonStyle="tertiary"
-          text={"Secondary Button"}
-          onClick={() => alert("primary button clicked!!")}
+          text={"tertiary Button"}
+          onClick={() => alert("tertiary button clicked!!")}
         />
+      </div>
+      <div>
+        <ButtonModal />
       </div>
     </div>
   );
