@@ -1,9 +1,12 @@
 "use client";
 
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Button from "@/app/components/Button/Button";
-import ButtonModal from "@/app/components/Button/ButtonModal";
+import ButtonForm1 from "./components/Button/samples/ButtonForm1";
+import ButtonForm2 from "./components/Button/samples/ButtonForm2";
+import InputSample1 from "./components/Input/sample/InputSample1";
 
 export default function Home() {
   return (
@@ -27,7 +30,12 @@ export default function Home() {
         />
       </div>
       <div>
-        <ButtonModal />
+        <ButtonForm1 />
+        <ButtonForm2 />
+      </div>
+      <div>
+        <h3>Input</h3>
+        <InputSample1 />
       </div>
     </div>
   );

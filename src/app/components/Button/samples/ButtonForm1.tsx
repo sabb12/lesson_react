@@ -1,7 +1,8 @@
-import styles from "./ButtonModal.module.css";
-import React, { useState } from "react";
+import Button from "../Button";
+import { useState } from "react";
+import styles from "./ButtonForm1.module.css";
 
-export default function ButtonModal() {
+export default function ButtonForm1() {
   const [inputValue, setInputValue] = useState("");
   const [updateInputValue, setupdateInputValue] = useState(inputValue);
 
@@ -17,13 +18,20 @@ export default function ButtonModal() {
     <div className={styles.buttonModalContainer}>
       <div className={styles.inputContainer}>
         <input type="text" className="nameInput" onChange={handleChange} />
-        <input className="dateofBirthInput" />
+        <input type="text" className="dateofBirthInput" />
       </div>
       <div>
-        <button className="cancelButton">취소</button>
-        <button type="button" onClick={handleClick} className="savedButton">
-          저장
-        </button>
+        <Button
+          buttonStyle="secondary"
+          text={"취소"}
+          onClick={() => alert("primary button clicked!!")}
+        />
+
+        <Button
+          buttonStyle="primary"
+          text={"저장"}
+          onClick={() => alert("primary button clicked!!")}
+        />
       </div>
       <h2>Message: {updateInputValue}</h2>
     </div>

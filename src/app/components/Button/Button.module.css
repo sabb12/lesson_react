@@ -14,19 +14,19 @@
 /* .buttonContainer.primary 는 같은 class에 있을 때 
   .buttonContainer .primary 는 child class 일 때  */
 
-.primary {
+.button.primary {
   background-color: blueviolet;
   color: white;
   border: 1px solid blueviolet;
 }
 
-.secondary {
+.button.secondary {
   background-color: white;
   color: blueviolet;
   border: 2px solid blueviolet;
 }
 
-.tertiary {
+.button.tertiary {
   background-color: black;
   color: white;
   border: 1px solid black;

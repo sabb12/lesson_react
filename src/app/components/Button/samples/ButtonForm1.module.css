@@ -9,6 +9,10 @@
   gap: 10px;
 }
 
+.modalDisplay {
+  display: block;
+}
+
 .inputContainer {
   display: flex;
   flex-direction: column;
