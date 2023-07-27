@@ -7,6 +7,8 @@ import Button from "@/app/components/Button/Button";
 import ButtonForm1 from "./components/Button/samples/ButtonForm1";
 import ButtonForm2 from "./components/Button/samples/ButtonForm2";
 import InputSample1 from "./components/Input/sample/InputSample1";
+import ModalForm from "./components/Modal/sample/ModalForm";
+import ModalSample from "./components/Modal/sample/ModalSample";
 
 export default function Home() {
   return (
@@ -36,6 +38,12 @@ export default function Home() {
       <div>
         <h3>Input</h3>
         <InputSample1 />
+      </div>
+      <div>
+        <ModalForm />
+      </div>
+      <div>
+        <ModalSample />
       </div>
     </div>
   );

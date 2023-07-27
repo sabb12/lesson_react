@@ -24,13 +24,13 @@ export default function ButtonForm1() {
         <Button
           buttonStyle="secondary"
           text={"취소"}
-          onClick={() => alert("primary button clicked!!")}
+          onClick={() => setInputValue("")}
         />
 
         <Button
           buttonStyle="primary"
           text={"저장"}
-          onClick={() => alert("primary button clicked!!")}
+          onClick={() => setInputValue("")}
         />
       </div>
       <h2>Message: {updateInputValue}</h2>
