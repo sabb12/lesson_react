@@ -29,7 +29,7 @@ export default function MobileAuthModal({ onClose }: Props) {
               <Button
                 text="발급"
                 onClick={() => alert("인증번호가 발급 됬다")}
-              />
+                color="black" width="55px" fontSize="15px"/>
             }
           />
           <Input

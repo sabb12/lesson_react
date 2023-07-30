@@ -5,10 +5,10 @@ import { ChangeEvent } from "react";
 // 많이 사용하는 공통 component는 useSate를 가능한 사용 안하거나 적게 사용하는게 좋다
 
 type Props = {
-  value: string;
+  value?: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onClear: () => void; //입력한 내용을 비게해주는 함수 => void return 없으면 void
-  title: string;
+  title?: string;
   required?: boolean;
   placeHolder?: string;
   actionButton?: React.ReactNode; //type string도 되고 jsx도 되고 숫자도 되고 다 된다

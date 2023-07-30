@@ -9,12 +9,13 @@ import ButtonForm2 from "./components/Button/samples/ButtonForm2";
 import InputSample1 from "./components/Input/sample/InputSample1";
 import ModalForm from "./components/Modal/sample/ModalForm";
 import ModalSample from "./components/Modal/sample/ModalSample";
+import FormSample1 from "./components/Form/sameple/FormSample1";
 
 export default function Home() {
   return (
     <div>
       <h1>Button</h1>
-      <div>
+      <div className={styles.buttonContainer}>
         <Button
           buttonStyle="primary"
           text={"Primary Button"}
@@ -44,6 +45,9 @@ export default function Home() {
       </div>
       <div>
         <ModalSample />
+      </div>
+      <div>
+        <FormSample1 />
       </div>
     </div>
   );

@@ -1,13 +1,29 @@
 .buttonModalContainer {
   margin-top: 30px;
   border: 2px solid black;
+  border-radius: 10px;
   width: 400px;
-  height: 150px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 10px;
 }
+
+.wrapper{
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  height: 180px;
+  justify-content: center;
+  gap: 5px;
+  
+}
+/* .buttonForm2{
+  margin-top: 30px;
+} */
 
 .modalDisplay {
   display: block;
@@ -16,4 +32,23 @@
 .inputContainer {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
+
+
+.buttonContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.buttonContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+/* 
+.buttonModalContainer > div > div > button {
+  background-color: blue !important;
+} */

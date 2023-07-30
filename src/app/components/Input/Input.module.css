@@ -1,11 +1,13 @@
 .inputContainer,
 .inputContainer * {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .inputContainer {
   border: 1px solid black;
-  width: 100%;
+  border-radius: 10px;
+  /* width: 100%; */
+  width: 500px;
   display: flex;
   flex-direction: row;
   padding: 10px;
@@ -28,4 +30,8 @@
   display: flex;
   gap: 10px;
   align-items: center;
+}
+
+.actionStyle{
+  color: red;
 }
