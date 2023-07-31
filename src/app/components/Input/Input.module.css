@@ -6,8 +6,6 @@
 .inputContainer {
   border: 1px solid black;
   border-radius: 10px;
-  /* width: 100%; */
-  width: 500px;
   display: flex;
   flex-direction: row;
   padding: 10px;
@@ -32,6 +30,6 @@
   align-items: center;
 }
 
-.actionStyle{
+.actionStyle {
   color: red;
 }

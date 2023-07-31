@@ -3,7 +3,6 @@ import Input from "../../Input/Input";
 import { useState } from "react";
 import styles from "./ButtonForm1.module.css";
 
-
 export default function ButtonForm1() {
   const [inputValue, setInputValue] = useState("");
   const [updateInputValue, setupdateInputValue] = useState(inputValue);
@@ -21,37 +20,41 @@ export default function ButtonForm1() {
 
   return (
     <div className={styles.buttonModalContainer}>
-       <div className={styles.wrapper}>
+      <div className={styles.wrapper}>
         <div className={styles.inputContainer}>
           <Input
-              title="이름"
-              value={phoneNumber}
-              onChange={(event) => {
-                setPhoneNumber(event.target.value);
-              }}
-              onClear={() => {
-                setPhoneNumber("");
-              }}
-              actionButton={
-                <Button
-                  text="발급"
-                  onClick={() => alert("인증번호가 발급 됬다")}
-                  color="black" width="55px" fontSize="15px"/>
-              }
-            />
-            <Input
-              title="번호"
-              value={certification}
-              onChange={(event) => {
-                setCertification(event.target.value);
-              }}
-              onClear={() => {
-                setCertification("");
-              }}
-            />
+            title="이름"
+            value={phoneNumber}
+            onChange={(event) => {
+              setPhoneNumber(event.target.value);
+            }}
+            onClear={() => {
+              setPhoneNumber("");
+            }}
+            actionButton={
+              <Button
+                text="발급"
+                onClick={() => alert("인증번호가 발급 됬다")}
+                color="black"
+                width="55px"
+                fontSize="15px"
+              />
+            }
+          />
+          3
+          <Input
+            title="번호"
+            value={certification}
+            onChange={(event) => {
+              setCertification(event.target.value);
+            }}
+            onClear={() => {
+              setCertification("");
+            }}
+          />
         </div>
         <div className={styles.buttonContainer}>
-          <Button 
+          <Button
             color="black"
             width="70px"
             height="40px"

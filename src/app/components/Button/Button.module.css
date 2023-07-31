@@ -21,21 +21,18 @@
   background-color: blueviolet;
   color: white;
   border: 1px solid blueviolet;
-  width: 300px;
 }
 
 .button.secondary {
   background-color: white;
   color: blueviolet;
   border: 2px solid blueviolet;
-  width: 300px;
 }
 
 .button.tertiary {
   background-color: black;
   color: white;
   border: 1px solid black;
-  width: 300px;
 }
 
 .inputContainer .buttonList {

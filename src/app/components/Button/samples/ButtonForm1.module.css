@@ -11,7 +11,7 @@
   gap: 10px;
 }
 
-.wrapper{
+.wrapper {
   /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
@@ -19,7 +19,6 @@
   height: 180px;
   justify-content: center;
   gap: 5px;
-  
 }
 /* .buttonForm2{
   margin-top: 30px;
@@ -35,14 +34,13 @@
   gap: 5px;
 }
 
-
-.buttonContainer{
+.buttonContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.buttonContainer{
+.buttonContainer {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

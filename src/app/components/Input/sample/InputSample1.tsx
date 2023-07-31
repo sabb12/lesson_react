@@ -15,7 +15,7 @@ export default function InputSample1() {
         required={true}
         placeHolder={"이름을 입력 하세요"}
         icon={"V"}
-        actionButton={<Button text={"Action"} color="black" width="55px" fontSize="15px"/>}
+        actionButton={<Button text={"Action"} />}
       />
     </div>
   );
