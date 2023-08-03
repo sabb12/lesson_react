@@ -33,12 +33,14 @@ export default function ButtonForm1() {
             }}
             actionButton={
               <Button
-                text="발급"
+                // text="발급"
                 onClick={() => alert("인증번호가 발급 됬다")}
-                color="black"
-                width="55px"
-                fontSize="15px"
-              />
+                // color="black"
+                // width="55px"
+                // fontSize="15px"
+              >
+                발급
+              </Button>
             }
           />
           3
