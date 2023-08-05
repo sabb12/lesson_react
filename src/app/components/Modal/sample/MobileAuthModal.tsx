@@ -27,9 +27,8 @@ export default function MobileAuthModal({ onClose }: Props) {
             }}
             actionButton={
               <Button
-                text="발급"
                 onClick={() => alert("인증번호가 발급 됬다")}
-                color="black" width="55px" fontSize="15px"/>
+               >발급</Button>
             }
           />
           <Input
@@ -44,8 +43,8 @@ export default function MobileAuthModal({ onClose }: Props) {
           />
         </div>
         <div>
-          <Button text="취소" />
-          <Button text="완료" />
+          <Button>취소</Button>
+          <Button>완료</Button>
         </div>
       </div>
     </Modal2>

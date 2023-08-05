@@ -10,8 +10,7 @@ type Todo = {
 
 
 const TODO_LIST_DUMMY = [
-    { id: Date.now(), content: "hi", checked: false },
-    { id: Date.now(), content: "hi2", checked: false },
+    { id: Date.now(), content:'', checked: false },
   ];
 
 export default function Todolist(){

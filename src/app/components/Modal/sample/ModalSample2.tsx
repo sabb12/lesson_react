@@ -10,9 +10,8 @@ export default function ModalSample2() {
   return (
     <div>
       <Button
-        text={"휴대폰번호 인증모달 열기"}
         onClick={() => setAuthModal(true)}
-      />
+      >휴대폰번호 인증모달 열기</Button>
       {authModal && (
         <MobileAuthModal
           onClose={() => {
