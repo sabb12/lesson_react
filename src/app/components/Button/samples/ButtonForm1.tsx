@@ -57,25 +57,14 @@ export default function ButtonForm1() {
         </div>
         <div className={styles.buttonContainer}>
           <Button
-            color="black"
-            width="70px"
-            height="40px"
-            border="1px solid black"
             buttonStyle="secondary"
-            text={"취소"}
             onClick={() => setInputValue("")}
-          />
+          >취소</Button>
 
           <Button
-            color="black"
-            width="70px"
-            height="40px"
-            background="white"
-            border="1px solid black"
             buttonStyle="primary"
-            text={"저장"}
             onClick={() => setInputValue("")}
-          />
+          >저장</Button>
         </div>
       </div>
     </div>

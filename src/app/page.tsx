@@ -18,19 +18,16 @@ export default function Home() {
       <div className={styles.buttonContainer}>
         <Button
           buttonStyle="primary"
-          text={"Primary Button"}
           onClick={() => alert("primary button clicked!!")}
-        />
+        >Primary Button</Button>
         <Button
           buttonStyle="secondary"
-          text={"Secondary Button"}
           onClick={() => alert("secondary button clicked!!")}
-        />
+        >Secondary Button</Button>
         <Button
           buttonStyle="tertiary"
-          text={"tertiary Button"}
           onClick={() => alert("tertiary button clicked!!")}
-        />
+        >tertiary Button</Button>
       </div>
       <div>
         <ButtonForm1 />

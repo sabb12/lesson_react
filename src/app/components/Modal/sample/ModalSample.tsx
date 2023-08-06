@@ -12,16 +12,13 @@ export default function ModalSample() {
 
   return (
     <div>
-      <Button text={"Modal2 열기"} onClick={() => setOpen(true)} />
+      <Button onClick={() => setOpen(true)} >Modal2 열기</Button>
       {open && (
         <Modal2 onClose={() => setOpen(false)}>
           <div>Modal2</div>
         </Modal2>
       )}
-      <Button
-        text={"휴대폰번호 인증모달 열기"}
-        onClick={() => setAuthModal(true)}
-      />
+      <Button onClick={() => setAuthModal(true)}>휴대폰번호 인증모달 열기</Button>
       {authModal && <MobileAuthModal onClose={() => setAuthModal(false)} />}
     </div>
   );

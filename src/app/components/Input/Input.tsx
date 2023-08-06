@@ -7,7 +7,7 @@ import { ChangeEvent } from "react";
 type Props = {
   value?: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  onClear: () => void; //입력한 내용을 비게해주는 함수 => void return 없으면 void
+  onClear?: () => void; //입력한 내용을 비게해주는 함수 => void return 없으면 void
   title?: string;
   required?: boolean;
   placeHolder?: string;

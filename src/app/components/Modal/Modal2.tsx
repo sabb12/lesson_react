@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import styles from "./Modal2.module.css";
 
-type Props = PropsWith<{
+type Props = PropsWithChildren<{
   onClose: () => void;
   title?: string;
 }>;

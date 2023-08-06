@@ -144,31 +144,23 @@ const TODO_LIST_DUMMY:[] = [
 ];
 
 export default function TodoList() {
-  const [todoList, setTodoList] = useState<Todo[]>(TODO_LIST_DUMMY);
-    const [input, setInput] = useState<string>("");
-
-    const handleToggle = (id: number)=>{
-        setTodoList(
-            todoList.map((todo) => {
-                if(todo.id === id){
-                    return {...todo, checked: !todo.checked}
-                }
-                return todo;
-            })
-        );
-    }
-
+    const [todoList, setTodoList] = useState<Todo[]>(TODO_LIST_DUMMY);
+    const [input, setInput] = useState("");
+    
     const handleClick = () => {
-        if(input !== ""){
+        // if(input !== ""){
             const newTodo: Todo =  { id: Date.now(), content: input, checked: false }
-            setTodoList([...todoList, newTodo])
+            // todoList.push(newTodo)
+            // etTodoList(todoList);
+            setTodoList([...todoList, newTodo]);
+            // setTodoList(todoList.concat(newTodo));
             setInput("");
-        }
+        // }
     }
 
     return <div>
         <input type="text" onChange={(e) => setInput(e.currentTarget.value)} />
-        <button onClick={handleClick} >Add</button>
+        <button onClick={(handleClick)} >Add</button>
         <div>
         {/* <ul>
             {todoList.map((todo) => (<li key={todo.id} onClick={()=> handleToggle(todo.id)} >{todo.content}</li>))}
