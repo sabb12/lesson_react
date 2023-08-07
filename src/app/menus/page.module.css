@@ -1,0 +1,36 @@
+.container * {
+  border: 1px solid black;
+}
+
+/* .container {
+
+} */
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cartContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.cart {
+  display: flex;
+  flex-direction: row;
+}
+
+.total {
+}
+
+/* row "wrap" = 넘치면 밑으로 할게 */
+.productListContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 800px;
+}
