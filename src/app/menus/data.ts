@@ -99,6 +99,6 @@ export const MenuDB = {
     /* TODO */
   },
   delete: function (id: number): void {
-    /* TODO */
+    MenuDB._menu = MenuDB.select().filter((menu) => menu.id !== id);
   },
 };
