@@ -94,6 +94,11 @@ export const MenuDB = {
   },
   add: function (menu: Omit<Menu, "id">): void {
     /* TODO id는 Date.now() 로 만들어주세요 */
+    const newProduct = {
+      id: Date.now(),
+      ...menu,
+    };
+    MenuDB._menu.push(newProduct);
   },
   update: function (menu: Menu): void {
     /* TODO */

@@ -11,6 +11,7 @@ type Props = {
     name: string;
     price: number;
     category: string;
+    imageUrl: string;
   };
 };
 
@@ -25,7 +26,7 @@ export default function Product(props: Props) {
         </div>
       )}
       <div className={styles.image}>
-        <img src="https://source.unsplash.com/random" alt="" />
+        <img src={product.imageUrl} alt="" />
       </div>
       <div className={styles.detailContainer}>
         {showCategory && <div>{product.category}</div>}

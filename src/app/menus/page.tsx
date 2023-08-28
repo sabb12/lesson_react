@@ -12,10 +12,17 @@ export default function MenusPage() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [editMode, setEditMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
+  // useState = 값의 변경을 감지 하면 rendering
+  // useEffect = 값의 변경을 감지 하면 함수 호출
+  // [] 없으면 한번만 호출 된다
+  // [totalPrice] 이들이 변경이 감지 되면 이 함수를
   useEffect(() => {
     setProductList(MenuDB.select());
   }, []);
+
+  // useEffect(() => {
+  //   console.log("totalPrice Changed");
+  // }, [totalPrice]);
 
   return (
     <div className={styles.container}>
@@ -85,7 +92,6 @@ export default function MenusPage() {
               }}
               onDelete={() => {
                 MenuDB.delete(menu.id);
-                console.log(MenuDB.select());
                 setProductList(MenuDB.select());
                 // target = MenuDB에 배열에서 삭제 해야 한다
                 // id를 찾아 낸다
@@ -120,7 +126,16 @@ export default function MenusPage() {
           메뉴편집
         </div>
       </div>
-      {showModal && <NewMenuModal onClose={() => setShowModal(false)} />}
+      {showModal && (
+        <NewMenuModal
+          onClose={() => setShowModal(false)}
+          onAdd={function (menu) {
+            MenuDB.add({ ...menu, imageUrl: menu.imageURL });
+            setProductList(MenuDB.select());
+            setShowModal(false);
+          }}
+        />
+      )}
     </div>
   );
 }
