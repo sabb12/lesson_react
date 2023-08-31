@@ -5,10 +5,12 @@ import styles from "./page.module.css";
 import Product from "./components/Product";
 import { Menu, MenuDB } from "./data";
 import NewMenuModal from "./components/NewMenuModal";
+import { Neuton } from "next/font/google";
 
 export default function MenusPage() {
   const [productList, setProductList] = useState<Menu[]>([]);
   const [cartList, setCartList] = useState<Menu[]>([]);
+  const [selectedProduct, setSelectedProduct] = useState<Menu | null>();
   const [totalPrice, setTotalPrice] = useState(0);
   const [editMode, setEditMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -87,8 +89,17 @@ export default function MenusPage() {
               size="productList"
               product={menu}
               onClick={() => {
-                setCartList([...cartList, menu]);
-                setTotalPrice(menu.price + totalPrice);
+                if (editMode) {
+                  setSelectedProduct(menu);
+                  setShowModal(true);
+                  console.log("수정모달 뛰우기");
+                  // eidtMode이 true일때
+                  // 재품을 클릭 시 NewMenuModal이 열린다
+                  // 열린 NewMenuModal의 input에 클릭 한 재품 정보가 입력되어 있어야된다
+                } else {
+                  setCartList([...cartList, menu]);
+                  setTotalPrice(menu.price + totalPrice);
+                }
               }}
               onDelete={() => {
                 MenuDB.delete(menu.id);
@@ -128,17 +139,55 @@ export default function MenusPage() {
       </div>
       {showModal && (
         <NewMenuModal
-          onClose={() => setShowModal(false)}
+          onClose={function () {
+            setShowModal(false);
+            setSelectedProduct(null);
+          }}
           onAdd={function (menu) {
-            MenuDB.add({ ...menu, imageUrl: menu.imageURL });
+            // selectedPrdouct가 Null이 아니면
+            console.log("selectedProduct", selectedProduct);
+            if (selectedProduct) {
+              MenuDB.update({
+                id: menu.id || 0,
+                name: menu.name,
+                price: menu.price,
+                category: menu.category,
+                imageUrl: menu.imageURL,
+              });
+            } else {
+              console.log("추가");
+              MenuDB.add({ ...menu, imageUrl: menu.imageURL });
+            }
+            // selectedProudct 정부만 수정 해준다
+            // selectedProduct가 Null이면
+            // 새로 MenuDB.add를 해준다
             setProductList(MenuDB.select());
             setShowModal(false);
           }}
+          initialValue={
+            selectedProduct
+              ? {
+                  id: selectedProduct.id,
+                  name: selectedProduct.name,
+                  price: selectedProduct.price,
+                  category: selectedProduct.category,
+                  imageURL: selectedProduct.imageUrl,
+                }
+              : { name: "", price: 0, category: "", imageURL: "" }
+            // selectedProduct가 Null이 아니면
+            // selectedProudct를 넘겨주고
+            // selectedProudct가 Null이면
+            // 빈값으로 초기화된 객체
+          }
+          // 등록할때는 초기 값이 비어 있다
+          // 수정 일 때 클릭한 재품의 정보가 들어 가야 된다
         />
       )}
     </div>
   );
 }
+// react compnoent는 함수다
+// onClose and onAdd === Props라고 한다
 
 // cartList 카토목록을 담는 상태를 선언
 // cartList를 map으로 렌더링한다

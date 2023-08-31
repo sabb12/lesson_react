@@ -79,7 +79,7 @@ export const MenuDB = {
       imageUrl: "https://source.unsplash.com/random",
     },
     {
-      id: 1670746801057,
+      id: 20,
       name: "치즈케이크",
       price: 5000,
       category: "디저트",
@@ -102,6 +102,14 @@ export const MenuDB = {
   },
   update: function (menu: Menu): void {
     /* TODO */
+    // undefined는 _menu에 data가 없는게 아니라 개발자가 callback 함수를 작성 하기때문에 오류가 날수 있다 그래서 방어코드인 if(!targetMenue) return; 해준다
+
+    const targetMenue = MenuDB.select().find((_menu) => _menu.id === menu.id);
+    if (!targetMenue) return;
+    targetMenue.name = menu.name;
+    targetMenue.price = menu.price;
+    targetMenue.category = menu.category;
+    targetMenue.imageUrl = menu.imageUrl;
   },
   delete: function (id: number): void {
     MenuDB._menu = MenuDB.select().filter((menu) => menu.id !== id);

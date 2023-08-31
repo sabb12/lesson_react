@@ -1,7 +1,10 @@
 import { useState } from "react";
 import Modal2 from "@/app/components/Modal/Modal2";
 
-type newMenu = {
+// 정의 한거 뿐이다, 객체가 만들어 진게 아니다
+// const menu: NewMenu = {name: "12", price} 이렇게 되야 객체가 생성 된다.
+type NewMenu = {
+  id?: number;
   name: string;
   price: number;
   category: string;
@@ -10,17 +13,13 @@ type newMenu = {
 
 type Props = {
   onClose: () => void;
-  onAdd: (menu: newMenu) => void;
+  onAdd: (menu: NewMenu) => void;
+  initialValue: NewMenu;
 };
 
-export default function NewMenuModal({ onClose, onAdd }: Props) {
-  const [inputValues, setInputValues] = useState({
-    name: "",
-    price: 0,
-    category: "",
-    imageURL: "",
-  });
-
+export default function NewMenuModal({ onClose, onAdd, initialValue }: Props) {
+  const [inputValues, setInputValues] = useState(initialValue);
+  console.log("in", initialValue);
   return (
     <Modal2 onClose={onClose}>
       <div>
@@ -69,7 +68,14 @@ export default function NewMenuModal({ onClose, onAdd }: Props) {
           }}
         />
       </div>
-      <button onClick={() => onAdd(inputValues)}>Submit</button>
+      <button
+        onClick={function () {
+          console.log("inputValues :", inputValues);
+          onAdd(inputValues);
+        }}
+      >
+        Submit
+      </button>
     </Modal2>
   );
 }
