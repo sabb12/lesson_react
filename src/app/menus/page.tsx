@@ -5,7 +5,6 @@ import styles from "./page.module.css";
 import Product from "./components/Product";
 import { Menu, MenuDB } from "./data";
 import NewMenuModal from "./components/NewMenuModal";
-import { Neuton } from "next/font/google";
 
 export default function MenusPage() {
   const [productList, setProductList] = useState<Menu[]>([]);
@@ -48,14 +47,14 @@ export default function MenusPage() {
                     // 어떤 menu가 선택 됬는지 알아야 한다
                     // 새로운 배열을 만든다
                     // id를 찾아서 삭제한다
-                    const newCartList = cartList.filter(
-                      (item) => item.id !== menu.id
-                    );
+                    const newCartList = cartList.filter((item) => {
+                      return item.cartID !== menu.cartID;
+                    });
                     // setCartList(새로운 배열)
                     setCartList(newCartList);
                     setTotalPrice(totalPrice - menu.price);
                   }}
-                  key={menu.id}
+                  key={menu.cartID}
                   size="cart"
                   showCategory={false}
                   removable={true}
@@ -97,7 +96,7 @@ export default function MenusPage() {
                   // 재품을 클릭 시 NewMenuModal이 열린다
                   // 열린 NewMenuModal의 input에 클릭 한 재품 정보가 입력되어 있어야된다
                 } else {
-                  setCartList([...cartList, menu]);
+                  setCartList([...cartList, { ...menu, cartID: Date.now() }]);
                   setTotalPrice(menu.price + totalPrice);
                 }
               }}

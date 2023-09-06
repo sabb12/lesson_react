@@ -4,6 +4,7 @@ export type Menu = {
   price: number;
   category: string;
   imageUrl: string;
+  cartID?: any;
 };
 
 export const MenuDB = {
