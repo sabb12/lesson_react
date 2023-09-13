@@ -116,3 +116,5 @@ export const MenuDB = {
     MenuDB._menu = MenuDB.select().filter((menu) => menu.id !== id);
   },
 };
+
+// 소파 하위에 cateory

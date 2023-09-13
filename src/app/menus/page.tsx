@@ -7,6 +7,10 @@ import { Menu, MenuDB } from "./data";
 import NewMenuModal from "./components/NewMenuModal";
 
 export default function MenusPage() {
+  // useState<state의 "타입">(초기"값"")
+  // type은 memory에 할당 안된다 빌드과정에서 javascrip로 변화 되기 때문에 memory 할당과 관계없다
+  // 값은 memory에 할당된다
+  // const [productList, setProductList] = useState<{id: number, name: ""}>({id: 0, name: ""});
   const [productList, setProductList] = useState<Menu[]>([]);
   const [cartList, setCartList] = useState<Menu[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Menu | null>();
