@@ -25,6 +25,7 @@ export default function CategoryPage() {
               key={category.id}
               onClick={function () {
                 CategoryRepository.getList({ parentId: category.id }).then(
+                  // .then에서 .then(data) parameter가 있는건 resolve에 전달되는 값이 있는지에 따라 있고 없는거다
                   function (data) {
                     // depth3을 빈배열로 해준다
                     setDepth2(data);
@@ -34,6 +35,60 @@ export default function CategoryPage() {
               }}
             >
               {category.name}
+              <button
+                onClick={function () {
+                  // Depth1 삭제 했을 때
+                  // 클릭 된 자기사진 삭제
+                  // 클릭된 카테고리 id로 삭제
+                  CategoryRepository.deleteById(category.id).then(function () {
+                    // debugger;
+                    // 클릭 된 카테고리의 하위 Depth2 카테고리 삭제
+                    // parentId = 클릭된카테고리 id
+                    // 카테고리List parentId === 클릭된카테고리id 같으면 삭제
+                    CategoryRepository.deleteByParentId(category.id).then(
+                      function () {
+                        // debugger;
+                        // depth2를 돌면서 depth3를 삭제 한다
+                        // 카테고리List parentId === depth2 같으면 삭제
+                        // depth2.forEach(function (item) {
+                        //   CategoryRepository.deleteByParentId(item.id).then(
+                        //     function () {
+                        //       CategoryRepository.getList({ depth: 1 }).then(
+                        //         function (data) {
+                        //           setDepth1(data);
+                        //           setDepth2([]);
+                        //           setDepth3([]);
+                        //         }
+                        //       );
+                        //     }
+                        //   );
+                        // });
+                        console.log("depth2 :", depth2);
+                        const promiseList = depth2.map(function (item) {
+                          return new Promise(function (resolve) {
+                            CategoryRepository.deleteByParentId(item.id).then(
+                              function () {
+                                resolve("");
+                              }
+                            );
+                          });
+                        });
+                        Promise.all([promiseList]).then(function () {
+                          CategoryRepository.getList({ depth: 1 }).then(
+                            function (data) {
+                              setDepth1(data);
+                              setDepth2([]);
+                              setDepth3([]);
+                            }
+                          );
+                        });
+                      }
+                    );
+                  });
+                }}
+              >
+                삭제
+              </button>
             </div>
           );
         })}
