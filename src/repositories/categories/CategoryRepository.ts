@@ -4,6 +4,8 @@ import {
   GetListParam,
   Category,
   CategoryResponse,
+  NewCategoryParam,
+  UpdateCategoryParam,
 } from "@/repositories/categories/types";
 
 const SCHEMA_NAME = "categories";
@@ -37,6 +39,37 @@ export function getList({
 
       resolve(data.map(mapResponse));
     });
+  });
+}
+
+export function create(category: NewCategoryParam): Promise<void> {
+  return new Promise(function (resolve) {
+    supabase
+      .from(SCHEMA_NAME)
+      .insert(category)
+      .throwOnError()
+      .then(function () {
+        resolve();
+      });
+  }).catch(function (error) {
+    if (error.code === "23505") {
+      throw Error("중복된 값이 있습니다");
+    }
+
+    throw error;
+  });
+}
+
+export function update(updateCategory: UpdateCategoryParam): Promise<void> {
+  return new Promise(function (resolve) {
+    supabase
+      .from(SCHEMA_NAME)
+      .update(updateCategory)
+      .eq("id", updateCategory.id)
+      .throwOnError()
+      .then(function () {
+        resolve();
+      });
   });
 }
 

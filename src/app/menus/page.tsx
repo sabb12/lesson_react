@@ -101,7 +101,7 @@ export default function MenusPage() {
                   // 열린 NewMenuModal의 input에 클릭 한 재품 정보가 입력되어 있어야된다
                 } else {
                   setCartList([...cartList, { ...menu, cartID: Date.now() }]);
-                  setTotalPrice(menu.price + totalPrice);
+                  setTotalPrice(totalPrice + menu.price);
                 }
               }}
               onDelete={() => {
