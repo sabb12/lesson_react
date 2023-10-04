@@ -1,0 +1,12 @@
+.chipContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.done {
+  background-color: green;
+}
+
+.ready {
+  background-color: red;
+}

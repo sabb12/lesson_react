@@ -7,6 +7,8 @@ import styles from "./page.module.css";
 import * as CategoryRepository from "@/repositories/categories/CategoryRepository";
 import { Category } from "@/repositories/categories/types";
 import { useEffect, useState } from "react";
+import SyncProgressModal from "./components/SyncProgressModal/SyncProgressModal";
+import AsyncProgressModal from "./components/AsyncProgressModal/AsyncProgressModal";
 
 export default function ProductPage() {
   const [categoryDepth1List, setCategoryDepth1List] = useState<Category[]>([]);
@@ -19,6 +21,9 @@ export default function ProductPage() {
   const [depth3Category, setDepth3Category] = useState<Category>();
 
   const [imageList, setImageList] = useState<File[]>([]);
+
+  const [showSyncModal, setShowSyncModal] = useState(false);
+  const [showAsyncModal, setShowAsyncModal] = useState(false);
 
   // 화면이 처음 rendering(진입) 했을 때 depth1 selectedBox가 그려져 있어야된다
   useEffect(() => {
@@ -183,6 +188,36 @@ export default function ProductPage() {
       >
         저장
       </button>
+      <button
+        onClick={function () {
+          setShowSyncModal(true);
+        }}
+      >
+        동기적으로이미지 업로드 하기
+      </button>
+      <button
+        onClick={function () {
+          setShowAsyncModal(true);
+        }}
+      >
+        비동기적으로이미지 업로드 하기
+      </button>
+      {showSyncModal && (
+        <SyncProgressModal
+          onClose={function () {
+            setShowSyncModal(false);
+          }}
+          imageFiles={imageList}
+        />
+      )}
+      {showAsyncModal && (
+        <AsyncProgressModal
+          onClose={function () {
+            setShowAsyncModal(false);
+          }}
+          imageFiles={imageList}
+        />
+      )}
     </div>
   );
 }
