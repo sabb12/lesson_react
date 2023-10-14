@@ -9,6 +9,7 @@ type Props = {
 };
 
 export default function SyncProgressModal({ imageFiles, onClose }: Props) {
+  console.log("imageFiles :", imageFiles);
   const [uploadCount, setUploadCount] = useState(0);
   console.log(uploadCount);
   return (
@@ -36,11 +37,14 @@ export default function SyncProgressModal({ imageFiles, onClose }: Props) {
           //   });
 
           const promiseList = imageFiles.map(function (file) {
+            console.log("file :", file);
             const filename = `${file.name}-${Date.now()}`;
+            console.log("filename :", file);
             return supabase.storage.from("products").upload(filename, file);
           });
           promiseList.reduce(function (previousValue, currentValue, i) {
             return previousValue.then(function (data) {
+              console.log("what data ;", data);
               setUploadCount(i + 1);
               console.log(`resolve reduce promise ${i}, ${data?.data?.path}`);
               return currentValue;
