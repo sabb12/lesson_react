@@ -27,7 +27,10 @@ export default function NewMenuModal({ onClose, onAdd, initialValue }: Props) {
           type="file"
           onChange={(e) => {
             if (!e.target.files || e.target.files.length <= 0) return;
-            console.log(URL.createObjectURL(e.target.files[0]));
+            console.log(
+              "URL.createObjectURL(e.target.files[0]) :",
+              URL.createObjectURL(e.target.files[0])
+            );
             const newInputValues = {
               ...inputValues,
               imageURL: URL.createObjectURL(e.target.files[0]),

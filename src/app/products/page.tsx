@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { supabase } from "@/repositories";
@@ -82,6 +83,7 @@ export default function ProductPage() {
           onChange={function (e) {
             if (!e.target.files) return;
             const files: File[] = Array.from(e.target.files);
+            console.log(files);
             setImageList(files);
           }}
         />
