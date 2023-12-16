@@ -1,0 +1,21 @@
+.wrapper {
+  border: 1px solid black;
+  display: grid;
+  grid-template-areas: "cocktailList cocktailList" "bitcoinRank todyasQuote";
+}
+
+.section {
+  border: 1px solid red;
+}
+
+.cocktailList {
+  grid-area: cocktailList;
+}
+
+.bitcoinRank {
+  grid-area: bitcoinRank;
+}
+
+.todyasQuote {
+  grid-area: todyasQuote;
+}

@@ -19,7 +19,7 @@ type Props = {
 
 export default function NewMenuModal({ onClose, onAdd, initialValue }: Props) {
   const [inputValues, setInputValues] = useState(initialValue);
-  console.log("in", initialValue);
+  console.log("initialValue", initialValue);
   return (
     <Modal2 onClose={onClose}>
       <div>
