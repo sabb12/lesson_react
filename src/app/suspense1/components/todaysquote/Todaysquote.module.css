@@ -1,7 +1,12 @@
 .wrapper {
   display: flex;
-  overflow: scroll;
-  gap: 5px;
+  flex-direction: column;
+  padding: 15px;
+  gap: 15px;
+}
+
+.headTitle {
+  font-weight: bold;
 }
 
 .cockTailContainer {

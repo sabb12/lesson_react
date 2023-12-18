@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "./BitconList.module.css";
 
 type Bitcoin = {
-  maxSupply: string;
+  supply: string;
   name: string;
   rank: string;
 };
@@ -24,16 +24,21 @@ export default function BitconList() {
   // console.log(bitconList.slice(0, 10));
   return (
     <div className={styles.wrapper}>
-      {bitconList.map((bitcoin, i) => {
-        return (
-          <div key={i} className={styles.cockTailContainer}>
-            <div className={styles.title}>{bitcoin.name}</div>
-            {/* alt = 음성으로 지원해 줄수 있고, image 보여줄수 없을 때 대체 방법 */}
-            <div className={styles.maxSupply}>{bitcoin.maxSupply}</div>
-            <div className={styles.rank}>{bitcoin.rank}</div>
-          </div>
-        );
-      })}
+      <div className={styles.headTitle}>Bitcoin Rank</div>
+      <div className={styles.container}>
+        {bitconList.map((bitcoin, i) => {
+          return (
+            <div key={i} className={styles.cockTailContainer}>
+              <div className={styles.rank}>{bitcoin.rank}</div>
+              <div className={styles.infoContainer}>
+                <div className={styles.title}>{bitcoin.name}</div>
+                {/* alt = 음성으로 지원해 줄수 있고, image 보여줄수 없을 때 대체 방법 */}
+                <div className={styles.maxSupply}>{bitcoin.supply}</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
