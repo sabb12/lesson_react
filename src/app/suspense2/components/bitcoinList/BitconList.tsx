@@ -22,6 +22,12 @@ export default function BitconList() {
       });
   }, []);
 
+  // 방법 1
+  if (bitconList == null || bitconList.length === 0) {
+    return <Loader />;
+  }
+
+  // console.log(bitconList.slice(0, 10));
   return (
     <div className={styles.wrapper}>
       <div className={styles.headTitle}>Bitcoin Rank</div>

@@ -22,6 +22,7 @@ export default function BitconList() {
       });
   }, []);
 
+  // console.log(bitconList.slice(0, 10));
   return (
     <div className={styles.wrapper}>
       <div className={styles.headTitle}>Bitcoin Rank</div>

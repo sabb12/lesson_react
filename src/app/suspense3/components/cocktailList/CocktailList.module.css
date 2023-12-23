@@ -1,0 +1,34 @@
+.wrapper {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  overflow: scroll;
+  gap: 15px;
+}
+
+.headTitle {
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cockTailContainer {
+  width: 100px;
+
+  .image {
+    /* aspect-ratio: 1 / 1; */
+    width: inherit;
+  }
+}
+
+.title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
