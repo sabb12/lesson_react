@@ -11,7 +11,7 @@ export default function Cashier({ employee }: Props) {
       console.log("C의 근무시간이 아닙니다");
       return;
     }
-    console.log(employee.doWokring());
+    employee.doWokring();
   }
 
   return (

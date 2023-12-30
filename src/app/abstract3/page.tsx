@@ -33,6 +33,13 @@ export default function Abstract3() {
     return isWorking;
   }
 
+  function canCWorking(): boolean {
+    const time = dayjs().get("hour");
+    const isWorking = time >= 15 && time < 17;
+
+    return isWorking;
+  }
+
   function canDWorking(): boolean {
     const time = dayjs().get("hour");
     const isWorking = time >= 10 && time < 19;
@@ -266,7 +273,7 @@ export default function Abstract3() {
       <div className={styles.buttonList}>
         <button
           onClick={function () {
-            if (canFWorking()) {
+            if (canCWorking()) {
               console.log("C가 계산을 완료했습니다");
             } else {
               console.log("C의 근무시간이 아닙니다");

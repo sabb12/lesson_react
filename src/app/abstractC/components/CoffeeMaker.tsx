@@ -5,39 +5,43 @@ type Props = {
   employee: Employee;
 };
 
-export default function NonCoffeeMaker({ employee }: Props) {
-  function handleClickNoneCoffee(drink: string) {
+// coffeeMaker와 NonCoffeeMaker 비슷한 점
+// 1. handleClickCoffee
+// 2. UL
+
+export default function CoffeeMaker({ employee }: Props) {
+  function handleClickCoffee(drink: string) {
     if (!employee.canWorking()) {
       console.log(`${employee.getName()}의 근무시간이 아닙니다`);
       return;
     }
-
     console.log(employee.doWokring(drink));
   }
+
   return (
     <div>
-      <h3>논커피메뉴 제조 (직원{employee.getName()})</h3>
+      <h3>커피메뉴 제조 (직원{employee.getName()})</h3>
       <div>
         <button
           onClick={function () {
-            handleClickNoneCoffee("아이스티");
+            handleClickCoffee("아메리카노");
           }}
         >
-          아이스티
+          아메리카노
         </button>
         <button
           onClick={function () {
-            handleClickNoneCoffee("녹차");
+            handleClickCoffee("카페라떼");
           }}
         >
-          녹차
+          카페라떼
         </button>
         <button
           onClick={function () {
-            handleClickNoneCoffee("얼그레이");
+            handleClickCoffee("바닐라라떼");
           }}
         >
-          얼그레이
+          바닐라라떼
         </button>
       </div>
     </div>

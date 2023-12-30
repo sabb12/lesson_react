@@ -1,19 +1,22 @@
 import dayjs from "dayjs";
-import { employeeA } from "../services";
+import { Employee } from "../services";
 
-export default function CoffeeMaker() {
+type Props = {
+  employee: Employee;
+};
+
+export default function CoffeeMaker({ employee }: Props) {
   function handleClickCoffee(drink: string) {
-    if (!employeeA.canWorking()) {
-      console.log("A의 근무시간이 아닙니다");
+    if (!employee.canWorking()) {
+      console.log(`${employee.getName()}의 근무시간이 아닙니다`);
       return;
     }
-
-    employeeA.doWokring(drink);
+    console.log(employee.doWokring(drink));
   }
 
   return (
     <div>
-      <h3>커피메뉴 제조 (직원A)</h3>
+      <h3>커피메뉴 제조 (직원{employee.getName()})</h3>
       <div>
         <button
           onClick={function () {
